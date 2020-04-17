@@ -1,0 +1,39 @@
+#! /usr/bin/env bash
+# Minimal initramfs files are created without udev.
+# This hooks provides a polling disk mount replacement for udev.
+# Udev hook can be removed, resulting in smaller initramfs files.
+
+run_hook () {
+    local dev timeout sleepval device=$root
+    # if udev is running then exit
+    [ "$udevd_running" -eq 1 ] && return
+    # try for (timeout * sleepval =) 10 seconds to handle slow (USB) devices
+    timeout=1000
+    sleepval=0.01
+
+    case $device in
+        # label to resolve, when resolved the kernel block device also exists
+        UUID=*|LABEL=*|PARTUUID=*|PARTLABEL=*)
+            while [ $timeout -gt 0 ]; do
+                timeout=$((timeout - 1))
+                dev=$(blkid -lt "$device" -o device)
+                [ -n "$dev" ] && timeout=0 || sleep $sleepval
+            done
+            ;;
+        # kernel named block device, poll for existence
+        /dev/*)
+            while [ $timeout -gt 0 ]; do
+                timeout=$((timeout -1))
+                if [ -b "$device" ]; then
+                    dev=$device
+                    timeout=0
+                else
+                    sleep $sleepval
+                fi
+            done
+            ;;
+    esac
+}
+
+# vim:set syntax=sh:
+# /usr/lib/initcpio/hooks/without-udev

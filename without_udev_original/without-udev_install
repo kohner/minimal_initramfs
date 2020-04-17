@@ -1,0 +1,15 @@
+#! /usr/bin/env/ bash
+
+build() {
+    add_runscript
+}
+
+help() {
+    cat <<HELPEOF
+This hook provides support for booting without the "udev" hook,
+including support for UUID, LABEL, PARTUUID, PARTLABEL.
+HELPEOF
+}
+
+# vim: set ft=sh ts=4 sw=4 et:
+# /usr/lib/initcpio/install/without-udev

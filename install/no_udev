@@ -1,0 +1,16 @@
+#! /usr/bin/env/ bash
+
+build() {
+    add_runscript
+}
+
+help() {
+    cat <<HELPEOF
+This hook provides support for booting without the "udev" hook.
+You need to edit /usr/lib/initcpio/hooks/without-udev to make it work.
+Don't use it if your device names aka. sda, sdb change frequently.
+HELPEOF
+}
+
+# vim: set ft=sh ts=4 sw=4 et:
+# /usr/lib/initcpio/install/without-udev

@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+# This hooks replaces udev.
+# Udev hook can be removed, resulting in smaller initramfs files.
+# Remove udev now.
+
+run_hook () {
+    # This baby just needs some time...
+    sleep 0.1
+    dev="/dev/mmcblk0"
+    sleep 0.01
+}
+
+# /usr/lib/initcpio/hooks/without-udev
