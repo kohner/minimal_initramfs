@@ -1,0 +1,9 @@
+size    image and compression           sec
+
+4.3M initramfs-linux-lts-bzip2.img      17
+ 12M initramfs-linux-lts-cat.img        17
+4.4M initramfs-linux-lts-gzip.img       16      # default
+3.3M initramfs-linux-lts-lzma.img       17
+6.0M initramfs-linux-lts-lzop.img       17
+6.2M initramfs-linux-lts-lz4.img        17
+3.3M initramfs-linux-lts-xz.img         17

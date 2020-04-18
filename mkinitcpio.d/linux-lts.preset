@@ -20,4 +20,4 @@ minimal_image="/boot/initramfs-linux-lts-minimal.img"
 
 # _options specify additional hooks to be used
 
-# Don't forget to uncomment boot menu entry when enabling preset
+# Don't forget to enable boot entry when enabling preset

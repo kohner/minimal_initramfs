@@ -7,7 +7,7 @@ It does not support LVM or mdadm by default.
 
 Learn more about udev first: https://wiki.archlinux.org/index.php/Minimal_initramfs#Udev_requirement
 
-This hook was created based on suggestions from https://unix.stackexchange.com/questions/352381/how-to-boot-into-root-btrfs-file-system-with-minimal-initramfs-without-udev-hook/352932, the original hook can be found in ./without_udev_original.
+This hook was created based on suggestions from https://unix.stackexchange.com/questions/352381/how-to-boot-into-root-btrfs-file-system-with-minimal-initramfs-without-udev-hook/352932, find the original hook there.
 
 There are two no_udev files in hooks and install folder one goes to /usr/lib/initcpio/install the other to /usr/lib/initcpio/hooks.
 
@@ -59,6 +59,7 @@ Finding out necessary modules:
 If you want to remove hooks from HOOKS= you need to load to make initramfs load proper modules instead.
 READ THIS: https://wiki.archlinux.org/index.php/Minimal_initramfs#Finding_needed_modules
 Add your necessary modules to MODULES in your mkinitcpio config for the minimal initramfs config and remove hooks.
+If you want you can try removing some modules which you think are not necessary this will shrink your kernel image even further.
 
 About BINARIES:
 You probably want to have only fsck here, find BINARIES in https://wiki.archlinux.org/index.php/Minimal_initramfs and hack accordingly.
