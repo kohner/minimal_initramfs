@@ -1,0 +1,3 @@
+v1: usb_storage hid_generic usbhid sd_mod ahci crc32c_intel xhci_pci ext4
+
+v2: sdhci_acpi i8042 crc32c_intel xhci_pci atkbd serio_raw mmc_block ext4
